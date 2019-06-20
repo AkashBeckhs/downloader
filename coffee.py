@@ -8,9 +8,9 @@ import re
 import cities as cit
 
 
-tableName='columbia'
+tableName='chile'
 ct=''
-cities=cit.columbia
+cities=cit.chile
 pattern="dir\/(.*?)\/"
 startTime = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 currDir = os.path.dirname(os.path.realpath(__file__))
@@ -230,7 +230,7 @@ def main(argv):
     #driver = get_chromedriver(use_proxy=True, path=currDir)
     for city in cities:
         driver = initializeChrome()
-        searchText="accesorio de coche en %s"
+        searchText="polarizados en %s"
         global ct
         global dataArray
         try:

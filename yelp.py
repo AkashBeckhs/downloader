@@ -8,7 +8,7 @@ import cities as cit
 
 
 ct=''
-cities=cit.columbia
+cities=cit.chile
 tableName='chile'
 startTime = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 currDir = os.path.dirname(os.path.realpath(__file__))

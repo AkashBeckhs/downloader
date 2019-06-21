@@ -8,9 +8,9 @@ import re
 import cities as cit
 
 
-tableName='chile'
+tableName='paraguay'
 ct=''
-cities=cit.chile
+cities=cit.paraguay
 pattern="dir\/(.*?)\/"
 startTime = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 currDir = os.path.dirname(os.path.realpath(__file__))

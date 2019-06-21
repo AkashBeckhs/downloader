@@ -1,0 +1,5 @@
+__pycache__/*
+chromedriver
+chromedriver.log
+chromedriver_linux64.zip
+selenium/*

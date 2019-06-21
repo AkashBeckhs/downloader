@@ -10,7 +10,7 @@ import cities as cit
 
 tableName='chile'
 ct=''
-cities=cit.mexico
+cities=cit.chile
 pattern="dir\/(.*?)\/"
 startTime = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 currDir = os.path.dirname(os.path.realpath(__file__))

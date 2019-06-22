@@ -8,8 +8,8 @@ import cities as cit
 
 
 ct=''
-cities=cit.paraguay
-tableName='paraguay'
+cities=cit.uruguay
+tableName='uruguay'
 startTime = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 currDir = os.path.dirname(os.path.realpath(__file__))
 os.makedirs('%s/excel_data' %(currDir), exist_ok=True)

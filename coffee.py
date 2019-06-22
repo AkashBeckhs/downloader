@@ -230,7 +230,7 @@ def main(argv):
     #driver = get_chromedriver(use_proxy=True, path=currDir)
     for city in cities:
         driver = initializeChrome()
-        searchText="polarizados en %s"
+        searchText="accesorio de coche en %s"
         global ct
         global dataArray
         try:

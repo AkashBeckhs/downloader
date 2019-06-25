@@ -1,3 +1,4 @@
+import argparse
 from time import sleep
 from datetime import datetime
 import sys
@@ -8,9 +9,9 @@ import re
 import cities as cit
 
 
-tableName='paraguay'
+tableName=''
 ct=''
-cities=cit.paraguay
+cities=[]
 pattern="dir\/(.*?)\/"
 startTime = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 currDir = os.path.dirname(os.path.realpath(__file__))
@@ -226,11 +227,10 @@ def startSearch(driver, keys):
 
 
 def main(argv):
-    
     #driver = get_chromedriver(use_proxy=True, path=currDir)
     for city in cities:
         driver = initializeChrome()
-        searchText="accesorio de coche en %s"
+        searchText=argv
         global ct
         global dataArray
         try:
@@ -250,4 +250,23 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--country')
+    parser.add_argument('--table')
+    parser.add_argument('--search')
+    args=parser.parse_args()
+    if args.country:
+        cities=cit.cityDict[args.country]
+    else:
+        raise Exception("Enter city")
+    if args.table:
+        tableName=args.table
+    else:
+        raise Exception("Enter table")
+    if args.search:
+        searchText=args.search
+        main(searchText)
+    else:
+        raise Exception("Enter search text")
+    
+    

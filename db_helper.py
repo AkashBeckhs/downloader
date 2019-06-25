@@ -1,5 +1,4 @@
 import pymysql
-
 def initializeDB():
     db = pymysql.connect(
                     host='localhost',

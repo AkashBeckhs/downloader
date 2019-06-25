@@ -217,12 +217,14 @@ def searchText(driver, keys):
 
 def startSearch(driver, keys):
     try:
+        print("Search text")
         searchText(driver,keys)
         sleep(2)
+        print("iterate")
         iterateOverDataDivs(driver)
         sleep(1)
     except Exception as e:
-        print(e)
+        print("--------"+str(e))
 
 
 
@@ -241,6 +243,7 @@ def main(argv):
             ct=city
             driver.get("https://www.google.com/")
             sleep(3)
+            print("Starting search")
             startSearch(driver, keys)
             sleep(2)
         finally:

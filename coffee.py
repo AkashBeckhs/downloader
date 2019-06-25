@@ -236,8 +236,8 @@ def main(argv):
         try:
             #keys = " ".join(argv)
             keys=searchText %city
+            keys = str(keys).strip()
             print(keys)
-            keys = keys.strip()
             ct=city
             driver.get("https://www.google.com/")
             sleep(3)

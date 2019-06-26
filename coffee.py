@@ -232,12 +232,12 @@ def main(argv):
     #driver = get_chromedriver(use_proxy=True, path=currDir)
     for city in cities:
         driver = initializeChrome()
-        searchText=argv
+        st=argv
         global ct
         global dataArray
         try:
             #keys = " ".join(argv)
-            keys=searchText %city
+            keys=st %city
             keys = str(keys).strip()
             print(keys)
             ct=city
@@ -267,8 +267,7 @@ if __name__ == '__main__':
     else:
         raise Exception("Enter table")
     if args.search:
-        searchText=args.search
-        main(searchText)
+        main(args.search)
     else:
         raise Exception("Enter search text")
     

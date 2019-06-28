@@ -8,7 +8,7 @@ import db_helper  as db
 import re
 import cities as cit
 
-
+country=''
 tableName=''
 ct=''
 cities=[]
@@ -237,7 +237,7 @@ def main(argv):
         global dataArray
         try:
             #keys = " ".join(argv)
-            keys=st %city
+            keys=st %city %country
             keys = str(keys).strip()
             print(keys)
             ct=city
@@ -260,6 +260,7 @@ if __name__ == '__main__':
     args=parser.parse_args()
     if args.country:
         cities=cit.cityDict[args.country]
+        country=args.country
     else:
         raise Exception("Enter city")
     if args.table:

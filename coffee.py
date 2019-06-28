@@ -166,7 +166,7 @@ def iterateOverDataDivs(driver):
         while(length != 0):
             #extract data
             try:
-                print("Extraction started "+str(length)+" Element list length "+str(len(elements)))
+                #print("Extraction started "+str(length)+" Element list length "+str(len(elements)))
                 dataDict = dict()
                 elements[(length-1)].click()
                 sleep(2)
@@ -192,12 +192,12 @@ def iterateOverDataDivs(driver):
             print("No more elements")
             break
         else:
-            print("next btn clicked..........")
+            #print("next btn clicked..........")
             nextButton.click()
             sleep(3)
             elements = findElementsByXPath(driver, xpathDict['data_div'])
             length = len(elements)
-            print("len after clicking next button "+str(length))
+            #print("len after clicking next button "+str(length))
             sleep(2)
     return column_names
 

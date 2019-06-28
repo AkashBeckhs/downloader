@@ -237,7 +237,7 @@ def main(argv):
         global dataArray
         try:
             #keys = " ".join(argv)
-            keys=st %city %country
+            keys=st %(city,country)
             keys = str(keys).strip()
             print(keys)
             ct=city

@@ -11,7 +11,6 @@ def initializeDB():
                     autocommit=True
                 )
     cursor = db.cursor()
-
     return [db, cursor]
 
 

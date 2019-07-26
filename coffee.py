@@ -151,6 +151,7 @@ def iterateOverDataDivs(driver):
                 dataDict['Lat']="N/A"
                 dataDict['Lon']="N/A"
                 dataDict['City']=ct
+                print("appending")
                 dataArray.append(dataDict)
                 column_names = list(dataDict.keys())
             except Exception as e:

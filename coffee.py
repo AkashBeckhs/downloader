@@ -216,10 +216,11 @@ def main():
                     sleep(3)
                     startSearch(driver, key %(city,country))
                     sleep(2)
+                    print()
                 except Exception as e:
                     print(e)
-            writeToDb()
-            dataArray=[]
+                writeToDb()
+                dataArray=[]
     except Exception as e:
         print(e)
     finally:

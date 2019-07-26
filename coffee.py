@@ -7,6 +7,8 @@ from proxy_extension import get_chromedriver, webdriver, os
 import db_helper  as db
 import re
 import cities as cit
+import keywords as keys
+
 
 country=''
 tableName=''
@@ -63,8 +65,6 @@ def initializeChrome2():
                     )
 
         return driver
-
-
 
 
 def findElementByXPath(driver, xpath):
@@ -154,8 +154,6 @@ def extractLatLon(driver):
     finally:
         newDriver.close()
 
-   
-
 
 
 def iterateOverDataDivs(driver):
@@ -228,24 +226,23 @@ def startSearch(driver, keys):
 
 
 
-def main(argv):
+def main():
     #driver = get_chromedriver(use_proxy=True, path=currDir)
     for city in cities:
         driver = initializeChrome()
-        st=argv
         global ct
         global dataArray
         try:
             #keys = " ".join(argv)
-            keys=st %(city,country)
-            keys = str(keys).strip()
-            print(keys)
-            ct=city
-            driver.get("https://www.google.com/")
-            sleep(3)
-            print("Starting search")
-            startSearch(driver, keys)
-            sleep(2)
+            for key in keys.keywords:
+                key=key %(city,country)
+                key=str(key).strip()
+                ct=city
+                driver.get("https://www.google.com/")
+                sleep(3)
+                print("Starting search")
+                startSearch(driver, keys)
+                sleep(2)
         finally:
             driver.close()
         writeToDb()
@@ -256,7 +253,6 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--country')
     parser.add_argument('--table')
-    parser.add_argument('--search')
     args=parser.parse_args()
     if args.country:
         cities=cit.cityDict[args.country]
@@ -267,9 +263,7 @@ if __name__ == '__main__':
         tableName=args.table
     else:
         raise Exception("Enter table")
-    if args.search:
-        main(args.search)
-    else:
-        raise Exception("Enter search text")
+    main()
+   
     
     

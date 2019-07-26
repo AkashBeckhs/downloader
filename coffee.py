@@ -215,7 +215,7 @@ def searchText(driver, keys):
 
 def startSearch(driver, keys):
     try:
-        print("Search text")
+        print(keys)
         searchText(driver,keys)
         sleep(2)
         print("iterate")
@@ -228,23 +228,25 @@ def startSearch(driver, keys):
 
 def main():
     #driver = get_chromedriver(use_proxy=True, path=currDir)
-    for city in cities:
-        driver = initializeChrome()
-        global ct
-        global dataArray
-        try:
-            #keys = " ".join(argv)
-            for key in keys.keywords:
-                key=key %(city,country)
-                key=str(key).strip()
+    search=keys.keywords
+    driver = initializeChrome()
+    for key in search:
+        for city in cities:
+            global ct
+            global dataArray
+            global country
+            try:
+                city=str(city)
+                country=str(country)
                 ct=city
                 driver.get("https://www.google.com/")
                 sleep(3)
-                print("Starting search")
-                startSearch(driver, keys)
+                startSearch(driver, key %(city,country))
                 sleep(2)
-        finally:
-            driver.close()
+            except Exception as e:
+                print(e)
+            finally:
+                driver.close()
         writeToDb()
         dataArray=[]
 

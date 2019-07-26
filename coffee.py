@@ -40,7 +40,7 @@ xpathDict = {
 
 def initializeChrome():
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--headless')
+    #chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--start-maximized')
     chrome_options.add_argument('user-data-dir=%s/selenium' %(currDir))
@@ -52,25 +52,13 @@ def initializeChrome():
                     )
     return driver
 
-def initializeChrome2():
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--start-maximized')
-        #chrome_options.add_argument('user-data-dir=%s/selenium' %(currDir))
-        #chrome_options.add_argument('--proxy-server=%s' % PROXY)
-        driver = webdriver.Chrome(
-                        executable_path='%s/chromedriver2' %(currDir),
-                        chrome_options=chrome_options
-                    )
-
-        return driver
 
 
 def findElementByXPath(driver, xpath):
     try:
         element = driver.find_element_by_xpath(xpath)
-    except:
+    except Exception as e:
+        print(e)
         element = None
     return element
 
@@ -101,6 +89,7 @@ def extractAttrFromElement(driver, xpath, attr):
 
 def clickOnElement(driver, xPath):
     findElementByXPath(driver, xPath).click()
+    
 
 
 def extractHours(driver):
@@ -136,23 +125,6 @@ def writeToDb():
             print("Error saving")
 
 
-def extractLatLon(driver):
-    print("extracting lat lon........")
-    url=extractAttrFromElement(driver,xpathDict['direction_button'],'data-url')
-    url="https://www.google.com/"+url
-    newDriver=initializeChrome2()
-    try:
-        newDriver.get(url)
-        sleep(4)
-        currentUrl=newDriver.current_url
-        out=re.findall(pattern,currentUrl)
-        out=out[0].split(',')
-        return out[0],out[1]
-    except Exception as e:
-        print(e)
-        return "0","0"
-    finally:
-        newDriver.close()
 
 
 
@@ -228,27 +200,30 @@ def startSearch(driver, keys):
 
 def main():
     #driver = get_chromedriver(use_proxy=True, path=currDir)
-    search=keys.keywords
-    driver = initializeChrome()
-    for key in search:
-        for city in cities:
-            global ct
-            global dataArray
-            global country
-            try:
-                city=str(city)
-                country=str(country)
-                ct=city
-                driver.get("https://www.google.com/")
-                sleep(3)
-                startSearch(driver, key %(city,country))
-                sleep(2)
-            except Exception as e:
-                print(e)
-            finally:
-                driver.close()
-        writeToDb()
-        dataArray=[]
+    searches=keys.keywords
+    try:
+        driver = initializeChrome()
+        for key in searches:
+            for city in cities:
+                global ct
+                global dataArray
+                global country
+                try:
+                    city=str(city)
+                    country=str(country)
+                    ct=city
+                    driver.get("https://www.google.com/")
+                    sleep(3)
+                    startSearch(driver, key %(city,country))
+                    sleep(2)
+                except Exception as e:
+                    print(e)
+            writeToDb()
+            dataArray=[]
+    except Exception as e:
+        print(e)
+    finally:
+        driver.close()
 
 
 if __name__ == '__main__':

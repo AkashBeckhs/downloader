@@ -201,8 +201,8 @@ def startSearch(driver, keys):
 def main():
     #driver = get_chromedriver(use_proxy=True, path=currDir)
     searches=keys.keywords
+    driver = initializeChrome()
     try:
-        driver = initializeChrome()
         for key in searches:
             for city in cities:
                 global ct

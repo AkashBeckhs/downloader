@@ -233,14 +233,8 @@ def main():
 
 if __name__ == '__main__':
     parser=argparse.ArgumentParser()
-    parser.add_argument('--country')
     parser.add_argument('--table')
     args=parser.parse_args()
-    if args.country:
-        cities=cit.cityDict[args.country]
-        country=args.country
-    else:
-        raise Exception("Enter city")
     if args.table:
         tableName=args.table
     else:

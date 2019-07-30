@@ -203,6 +203,7 @@ def main():
     #driver = get_chromedriver(use_proxy=True, path=currDir)
     searches=keys.keywords
     driver = initializeChrome()
+    global country
     try:
         countrList=cit.toDoList
         for cntr in countrList:
@@ -211,7 +212,6 @@ def main():
                 for city in cities:
                     global ct
                     global dataArray
-                    global country
                     try:
                         city=str(city)
                         country=str(country)

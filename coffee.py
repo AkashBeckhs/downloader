@@ -208,13 +208,15 @@ def main():
         countrList=cit.toDoList
         for cntr in countrList:
             country=cntr
+            print(country)
             for key in searches:
+                print(key)
+                cities=cit.cityDict[country]
                 for city in cities:
                     global ct
                     global dataArray
                     try:
                         city=str(city)
-                        country=str(country)
                         ct=city
                         driver.get("https://www.google.com/")
                         sleep(3)

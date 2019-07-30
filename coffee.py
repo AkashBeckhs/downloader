@@ -204,24 +204,27 @@ def main():
     searches=keys.keywords
     driver = initializeChrome()
     try:
-        for key in searches:
-            for city in cities:
-                global ct
-                global dataArray
-                global country
-                try:
-                    city=str(city)
-                    country=str(country)
-                    ct=city
-                    driver.get("https://www.google.com/")
-                    sleep(3)
-                    startSearch(driver, key %(city,country))
-                    sleep(2)
-                    print()
-                except Exception as e:
-                    print(e)
-                writeToDb()
-                dataArray=[]
+        countrList=cit.toDoList
+        for cntr in countrList:
+            country=cntr
+            for key in searches:
+                for city in cities:
+                    global ct
+                    global dataArray
+                    global country
+                    try:
+                        city=str(city)
+                        country=str(country)
+                        ct=city
+                        driver.get("https://www.google.com/")
+                        sleep(3)
+                        startSearch(driver, key %(city,country))
+                        sleep(2)
+                        print()
+                    except Exception as e:
+                        print(e)
+                    writeToDb()
+                    dataArray=[]
     except Exception as e:
         print(e)
     finally:

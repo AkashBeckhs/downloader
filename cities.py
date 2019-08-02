@@ -34,11 +34,11 @@ cityDict['haiti']=['Port-au-Prince','Carrefour','Delmas','Cap-Haïtien','Pétion
 cityDict['guyana']=['Georgetown','Linden','New Amsterdam','Anna Regina','Bartica','Skeldon ','Rosignol','Mahaica Village','Mahdia','Parika']
 
 
-cityDict['suriname']=['Acaribo','Abenaston','Albina','Alliance','Anapaike','Apetina','Apoera','Aurora','Batavia','Benzdorp','Bitagron','Boskamp','Botopasi','Brokopondo','Brownsweg','Corneliskondre','Cottica','Djumu','Friendship','Goddo','Groningen','Jenny','Kajana','Kwakoegron','Kwamalasamutu','Lelydorp','Lebidoti','Moengo','Nieuw Amsterdam','Nieuw Jacobkondre','Nieuw Nickerie','Onverwacht','Paramaribo (Capital and largest city)','Paranam','Pelelu Tepu','Pokigron','Pontoetoe','Totness','Wageningen','Wanhatti','Washoda','Zanderij','']
+cityDict['suriname']=['Acaribo','Abenaston','Albina','Alliance','Anapaike','Apetina','Apoera','Aurora','Batavia','Benzdorp','Bitagron','Boskamp','Botopasi','Brokopondo','Brownsweg','Corneliskondre','Cottica','Djumu','Friendship','Goddo','Groningen','Jenny','Kajana','Kwakoegron','Kwamalasamutu','Lelydorp','Lebidoti','Moengo','Nieuw Amsterdam','Nieuw Jacobkondre','Nieuw Nickerie','Onverwacht','Paramaribo (Capital and largest city)','Paranam','Pelelu Tepu','Pokigron','Pontoetoe','Totness','Wageningen','Wanhatti','Washoda','Zanderij']
 cityDict['belize']=['Belize City','San Ignacio','Orange Walk','Belmopan','Dangriga	','Corozal','San Pedro','Benque Viejo','Punta Gorda','Ladyville	','Bullet Tree Falls','Shipyard','Guinea Grass','Trial Farm','Independence']
 cityDict['saint lucia']=['Anse La Raye','Au Tabor','Babonneau','Bocage','Castries - Capital','Canaries','Choiseul','Dennery','Gros Islet','Laborie','Micoud','Mon Repos','Monchy','Praslin','Ravine Poisson','Rodney Bay','Roseau','Soucis','Soufrière','Ti Rocher','Vieux Fort']
 cityDict['antigua and barbuda']=['All Saints','Bolans','Carlisle, Saint George','Carlisle, Saint Philip','Clare Hall','Cedar Grove','Codrington','Dickenson Bay','English Harbour','Falmouth','Freetown','Jennings','Liberta','Old Road','Parham','Pigotts','Potter\'s Village','Seaview Farm','St. John\'s','Swetes','Willikies']
 cityDict['Saint Kitts & Nevis']=['Basseterre','Cayon','Charlestown','Dieppe Bay Town','Gingerland','Newcastle','Old Road Town','Sandy Point Town']
 
 
-toDoList=['guyana']
+toDoList=['grenada']

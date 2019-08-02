@@ -34,4 +34,4 @@ cityDict['haiti']=['Port-au-Prince','Carrefour','Delmas','Cap-Haïtien','Pétion
 cityDict['guyana']=['Georgetown','Linden','New Amsterdam','Anna Regina','Bartica','Skeldon ','Rosignol','Mahaica Village','Mahdia','Parika']
 
 
-toDoList=['bolivia','guatemala','haiti','guyana']
+toDoList=['guatemala']

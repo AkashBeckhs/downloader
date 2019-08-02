@@ -41,4 +41,4 @@ cityDict['antigua and barbuda']=['All Saints','Bolans','Carlisle, Saint George',
 cityDict['Saint Kitts & Nevis']=['Basseterre','Cayon','Charlestown','Dieppe Bay Town','Gingerland','Newcastle','Old Road Town','Sandy Point Town']
 
 
-toDoList=['suriname']
+toDoList=['belize']

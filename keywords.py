@@ -1,4 +1,4 @@
-keywords = [
+keywords2 = [
     'window tinting services in %s,%s',
     'auto glass shops in %s,%s',
     'car window film shops in %s,%s',
@@ -8,7 +8,7 @@ keywords = [
     'car xenon supplier in %s,%s'
 ]
 
-keywords2=[
+keywords=[
 		  'car window tints shops %s,%s',
 		  'car window film shops %s,%s',
 		  'car audio stores %s,%s',

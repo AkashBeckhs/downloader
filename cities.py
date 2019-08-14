@@ -7,4 +7,4 @@ cityDict['uzbekistan']=['Afrasiab','Akkula','Andijon','Angren','Asaka','Baxt','B
 
 cityDict['kazakhastan']=['Almaty','Shymkent','Qaraghandy','Taraz','Astana','Pavlodar','Ã–skemen','Semey','Qyzylorda','AqtÃ¶be','Qostanay','Petropavl','Oral','AtyraÅ«','TemirtaÅ«','KÃ¶kshetaÅ«','Ekibastuz','Rudnyy','Zhezqazghan','TÃ¼rkistan','Taldyqorghan','Balkhash','Sarqan','KentaÅ«','Ridder','Arqalyq','Zyryanovsk','Zhitiqara','AyagÃ¶z','Arys','ShÅ«','Qapshaghay','QarataÅ«','Qulsary','Zharkent','Atbasar','Esik','Aksay','Aral','Beyneu','Balyqshy','ShÄ«eli','Alga','Oktyabrâ€™sk','Shalqar','ShemonaÄ«kha','EreymentaÅ«','KhromtaÅ«','Lengir','MakÄ«nsk','Oytal','Qarazhal','Boralday','ÃœshtÃ¶be','Zhosaly','AtasÅ«','Emba','Zaysan','DerzhavÄ«nsk','Uryzhar','Maqat','Esil','Taiynsha','Qulan','Otar','BÅ«laevo','Aqadyr','Ertis','Shar','Makhambet','ZhangaÃ¶zen','AqsÅ«','ZhÃ¤nibek','Qarqaraly','Qusmuryn','BayghanÄ«n','Osakarovka','BestÃ¶be','Tobyl','Zholymbet','KishkenekÃ¶l','Qazaly','Chapaev','Torghay','Fort-Shevchenko','AqtaÅ«','Saryshagan','Shongzhy','Serebryansk','Zhaltyr','Sharbaqty','BÅ«rylbaytal']
 
-toDoList=['russia']
+toDoList=['belarus']

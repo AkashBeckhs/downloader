@@ -9,4 +9,4 @@ cityDict['kazakhastan']=['Almaty','Shymkent','Qaraghandy','Taraz','Astana','Pavl
 
 cityDict['kyrgyzstan']=['Bishkek','Osh','Jalal-Abad','Tokmok','Kara-Balta','Karakol','Naryn','Balykchy','Talas','Toktogul','Tash-KÃ¶mÃ¼r','Cholpon-Ata','At-Bashy','KÃ¶k-Janggak','Uch-Korgon','Ormosh','Kara-Dzhygach','Kazarman','Baetov','Ãœch-Terek','Kochkor','Toguz-Bulak','Chaek','Ala-Buka','Suzak','Ak-Suu','Kara-DÃ¶bÃ¶','Lebedinovka','Boz-Adyr','Bazar-Korgon','Markaz','ChÃ¼y','TÃ¼p','BÃ¶kÃ¶nbaev','Kerben','Khalmion','Kyzyl-Suu','Pokrovka','Ak-Tatyr','Kyzyl-Bulak','Belovodskoe','Kulundu','Teploklyuchenka','GÃ¼lchÃ¶','Sokuluk','Kara-Suu','Samarkandyk','Aravan','Ak-Say','Kara-Bak','Kara-Kulja','Alga','Tayan','Tsentralâ€™noye','Isfana','Kyrgyz-Kyshtak','Batken','Kanysh-Kyya','Kant','Ivanovka','Ivanovo-Alekseyevka','Andarak','Eski-Nookat','Massy','Leninpolâ€™','Buzhum','Kemin','Beshkent','Chek','Kyzyl-Adyr','Kayyngdy','Korgon','Orozbekov','Katran','']
 
-toDoList=['uzbekistan']
+toDoList=['kyrgyzstan']

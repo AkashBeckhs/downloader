@@ -9,10 +9,10 @@ keywords2 = [
 ]
 
 keywords=[
-		  'car window tints shops %s,%s',
-		  'car window film shops %s,%s',
-		  'car audio stores %s,%s',
-          'auto led light stores %s,%s',
-          'auto hid xenon stores %s,%s',
-		  'xenon led stores %s,%s',
+		  'car window tint shops in %s,%s',
+		  'car window film shops in %s,%s',
+		  'car audio stores in %s,%s',
+          'auto led light stores in %s,%s',
+          'auto hid xenon stores in %s,%s',
+		  'xenon led stores in %s,%s',
          ]

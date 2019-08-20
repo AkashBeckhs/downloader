@@ -11,4 +11,4 @@ cityDict['kyrgyzstan']=['Bishkek','Osh','Jalal-Abad','Tokmok','Kara-Balta','Kara
 
 cityDict['tajikistan']=['Dushanbe','KhÅ­jand','QÅ­rghonteppa','Konibodom','KÅ­lob','Khorugh','Ishqoshim','Ismoili SomonÃ­','Vahdat','Shahrinav','Shahriston','Proletar','Istaravshan','Roghun','GhonchÃ­','Khovaling','Panj','Tajikobod','Mehron','DÅ­stÃ­','ShÅ­robod','Qubodiyon','Fayzobod','Zafarobod','Baljuvon','Jirghatol','Obikiik','Farkhor','Moskva','Vakhsh','Sovet','Sarband','AynÃ­','Isfara','Darband','Nov','Shaydon','Tursunzoda','Panjakent','Varzob','Abdurahmoni JomÃ­','Vanj','BÅ­ston','Danghara','BahorÃ­','JilikÅ­l','Somoniyon','Murghob','Norak','Hisor','Qalaikhumb','RÅ­shon','Roshtqalâ€™a','Voseâ€™','Tavildara','Rasht','Kolkhozobod','Shahritus','MÅ­â€™minobod','Yovon','Ghafurov']
 
-toDoList=['taji']
+toDoList=['tajikistan']

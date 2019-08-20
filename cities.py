@@ -11,4 +11,7 @@ cityDict['kyrgyzstan']=['Bishkek','Osh','Jalal-Abad','Tokmok','Kara-Balta','Kara
 
 cityDict['tajikistan']=['Dushanbe','KhÅ­jand','QÅ­rghonteppa','Konibodom','KÅ­lob','Khorugh','Ishqoshim','Ismoili SomonÃ­','Vahdat','Shahrinav','Shahriston','Proletar','Istaravshan','Roghun','GhonchÃ­','Khovaling','Panj','Tajikobod','Mehron','DÅ­stÃ­','ShÅ­robod','Qubodiyon','Fayzobod','Zafarobod','Baljuvon','Jirghatol','Obikiik','Farkhor','Moskva','Vakhsh','Sovet','Sarband','AynÃ­','Isfara','Darband','Nov','Shaydon','Tursunzoda','Panjakent','Varzob','Abdurahmoni JomÃ­','Vanj','BÅ­ston','Danghara','BahorÃ­','JilikÅ­l','Somoniyon','Murghob','Norak','Hisor','Qalaikhumb','RÅ­shon','Roshtqalâ€™a','Voseâ€™','Tavildara','Rasht','Kolkhozobod','Shahritus','MÅ­â€™minobod','Yovon','Ghafurov']
 
-toDoList=['tajikistan']
+
+cityDict['georgia']=['Batumi','Kutaisi','Rustavi','Gori','Zugdidi','Poti','Khashuri','Samtredia','Senaki','Zestafoni','Marneuli','Telavi','Akhaltsikhe','Kobuleti','Ozurgeti','Kaspi','Chiatura','Tsqaltubo','Sagarejo','Gardabani','Borjomi','Tqibuli','Khoni','Bolnisi','Akhalkalaki','Gurjaani','Mtskheta','Qvareli','Akhmeta','Kareli','Lanchkhuti','Tsalenjikha','Dusheti','Sachkhere','Dedoplistsqaro','Lagodekhi','Ninotsminda','Abasha','Tsnori','Terjola','Martvili','Jvari','Khobi','Vani','Baghdati','Vale','Tetritsqaro','Tsalka','Dmanisi','Oni','Ambrolauri','Sighnaghi','Tsager']
+
+toDoList=['georgia']

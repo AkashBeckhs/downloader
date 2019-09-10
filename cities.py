@@ -23,4 +23,7 @@ cityDict['lithuania']=['Vilnius','Kaunas','Klaipeda','Šiauliai','Panevezys','Al
 
 cityDict['south ossetia']=['Tbilisi','Batumi','Kutaisi','Rustavi','Gori','Zugdidi','Poti','Khashuri','Samtredia','Senaki','Zestafoni','Marneuli','Telavi','Akhaltsikhe','Kobuleti','Ozurgeti','Kaspi','Chiatura','Tsqaltubo','Sagarejo','Gardabani','Borjomi','Tqibuli','Khoni','Bolnisi','Akhalkalaki','Gurjaani','Mtskheta','Qvareli','Akhmeta','Kareli','Lanchkhuti','Tsalenjikha','Dusheti','Sachkhere','Dedoplistsqaro','Lagodekhi','Ninotsminda','Abasha','Tsnori','Terjola','Martvili','Jvari','Khobi','Vani','Baghdati','Vale','Tetritsqaro','Tsalka','Dmanisi','Oni','Ambrolauri','Sighnaghi','Tsageri']
 
-toDoList=['south ossetia']
+cityDict['turkmenistan']=['Aşgabat','Türkmenabat','Daşoguz','Mary','Serdar','Baýramaly','Balkanabat','Tejen','Türkmenbaşy','Magdanly','Abadan','Atamurat','Ýolöten','Konye-Urgench','Anau','Hazar','Gurbansoltan Eje','Gumdag','Baharly','Gazojak','Bereket','Boldumsaz','Gökdepe','Saýat','Seýdi','Kaka','Tagta','Farap','Gubadag','Akdepe','Murgap','Serhetabat ']
+
+
+toDoList=['turkmenistan']

@@ -26,4 +26,6 @@ cityDict['south ossetia']=['Tbilisi','Batumi','Kutaisi','Rustavi','Gori','Zugdid
 cityDict['turkmenistan']=['Aşgabat','Türkmenabat','Daşoguz','Mary','Serdar','Baýramaly','Balkanabat','Tejen','Türkmenbaşy','Magdanly','Abadan','Atamurat','Ýolöten','Konye-Urgench','Anau','Hazar','Gurbansoltan Eje','Gumdag','Baharly','Gazojak','Bereket','Boldumsaz','Gökdepe','Saýat','Seýdi','Kaka','Tagta','Farap','Gubadag','Akdepe','Murgap','Serhetabat ']
 
 
-toDoList=['turkmenistan']
+cityDict['armenia']=['Yerevan','Gyumri','Vanadzor','Vagharshapat','Abovyan','Kapan','Hrazdan','Armavir','Artashat','Ijevan','Gavar','Goris','Charentsavan','Ararat','Masis','Artik','Sevan','Ashtarak','Dilijan','Sisian','Alaverdi','Stepanavan','Martuni','Spitak','Vardenis','Yeghvard','Vedi','Byureghavan','Nor Hachn','Metsamor','Berd','Yeghegnadzor','Tashir','Kajaran','Aparan','Vayk','Chambarak','Noyemberyan','Talin','Jermuk','Meghri','Akhtala','Tumanyan','Tsaghkadzor']
+
+toDoList=['armenia']

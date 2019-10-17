@@ -5,4 +5,4 @@ cityDict['alaska']=['Adak' ,'Akhiok' ,'Akiak' ,'Akutan' ,'Alakanuk' ,'Aleknagik'
 
 
 
-toDoList=['alaska']
+toDoList=['alabama']

@@ -1,9 +1,7 @@
+
+
+
 keywords = [
-    'auto light shops in %s,%s'
-]
-
-
-keywords_temp = [
     'car lightning shops in %s,%s',
     'XID xenon lightning shops in %s,%s',
     'car led light shops in %s,%s',

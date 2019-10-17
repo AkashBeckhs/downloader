@@ -1,6 +1,5 @@
 keywords = [
-    'auto light shops in %s,%s',
-    'car led light shops in %s,%s',
+    'auto light shops in %s,%s'
 ]
 
 

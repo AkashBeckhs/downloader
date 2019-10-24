@@ -2,10 +2,8 @@
 
 
 keywords = [
-    'car lightning shops in %s,%s',
-    'XID xenon lightning shops in %s,%s',
-    'car led light shops in %s,%s',
-    'HID retrofit shops in %s,%s'
+    'car window film shops %s,%s',
+    'car window tinting services %s,%s',
 ]
 
 keywords_bck = [

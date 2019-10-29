@@ -2,8 +2,9 @@
 
 
 keywords = [
-    'car window film shops %s,%s',
     'car window tinting services %s,%s',
+    'car window film shops %s,%s',
+    
 ]
 
 keywords_bck = [

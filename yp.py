@@ -11,7 +11,7 @@ from html import unescape
 cities=['Texas']
 toFind="car+window+tinting"
 tableName='texas'
-wordPattern="([a-zA-Z ,]*)"
+listPattern='las\\";:\\[(.*)\\]'
 
 headers={'authority':'www.yelp.com',
 'method':'GET',
@@ -74,7 +74,7 @@ def removeExtraText(text):
 
 def scrapePage(s,url):
     print(url)
-    resp=s.get(url)
+    resp=s.get(url,proxies=proxies)
     sleep(random.uniform(0.9,5.1))
     tree=lh.fromstring(resp.text)
     dataDict=dict()
@@ -89,10 +89,15 @@ def scrapePage(s,url):
     db.writeToDB(dataDict,tableName)
 
 
+def extractAutoSuggetions(s,url):
+    resp=s.get(url,proxies=proxies)
+    sleep(random.uniform(0.9,5.1))
+    print(resp.text)
+
 
 
 def startExtraction(s,url):
-    resp=s.get(url)
+    resp=s.get(url,proxies=proxies)
     sleep(random.uniform(0.9,5.1))
     tree=lh.fromstring(resp.text)
     aTags=tree.xpath(xpathDict['data_div'])
@@ -117,15 +122,25 @@ def startExtraction(s,url):
 
 def startSearch(s):
     city='texas'
-    url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(toFind,city)
-    startExtraction(s,url)
+    sleep(random.uniform(0.9,5.1))
+    autoSuggestUrl=base_url+"/autosuggest/location.html?location=texas"
+    resp=s.get(autoSuggestUrl,proxies=proxies)
+    html=resp.text.replace('&quot','$').replace("\\","")
+    print(html)
+    groups=re.findall(listPattern,html)
+    print(len(groups))
+
+
+
+    #url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(toFind,city)
+    #startExtraction(s,url)
 
         
         
 
 def main():
     s=requests.session()
-    s.get(base_url)
+    s.get(base_url,proxies=proxies)
     sleep(random.uniform(0.9,5.1))
     startSearch(s)
 

@@ -15,7 +15,7 @@ def initializeDB():
 
 
 def writeToDB(dataList,tableName):
-        print("Writing to db")
+        print("Writing to db :- "+str(dataList))
         db, cursor = initializeDB()
         try:
             column_name = list(dataList.keys())
@@ -25,8 +25,9 @@ def writeToDB(dataList,tableName):
             TABLE_NAME=tableName
             column_name = '`,`'.join(column_name)
             sql = 'INSERT INTO `%s` (`%s`) VALUES (%s)' %(TABLE_NAME, column_name, column_values)
-           # print(sql)
+            #print(sql)
             cursor.execute(sql)
             db.commit()
+            print("Written")
         except Exception as e:
             print(e)

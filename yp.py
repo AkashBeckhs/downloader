@@ -79,7 +79,7 @@ def removeExtraText(text):
 def scrapePage(s,url):
     print(url)
     global tableName
-    resp=s.get(url,proxies=proxies)
+    resp=s.get(url)
     sleep(random.uniform(0.9,5.1))
     tree=lh.fromstring(resp.text)
     dataDict=dict()
@@ -95,14 +95,14 @@ def scrapePage(s,url):
 
 
 def extractAutoSuggetions(s,url):
-    resp=s.get(url,proxies=proxies)
+    resp=s.get(url)
     sleep(random.uniform(0.9,5.1))
     print(resp.text)
 
 
 
 def startExtraction(s,url):
-    resp=s.get(url,proxies=proxies)
+    resp=s.get(url)
     sleep(random.uniform(0.9,5.1))
     tree=lh.fromstring(resp.text)
     aTags=tree.xpath(xpathDict['data_div'])
@@ -110,7 +110,7 @@ def startExtraction(s,url):
     while(len(nextBtn)>0):
         href=nextBtn[0].attrib['href']
         nextPageUrl=base_url+href
-        resp=s.get(nextPageUrl,proxies=proxies)
+        resp=s.get(nextPageUrl)
         sleep(random.uniform(0.9,5.1))
         tree=lh.fromstring(resp.text)
         tList=tree.xpath(xpathDict['data_div'])
@@ -130,7 +130,7 @@ def startSearch(s):
     sleep(random.uniform(0.9,5.1))
     autoSuggestUrl=base_url+"/autosuggest/location.html?location=%s" %(search_city)
     print('Auto suggest url ',autoSuggestUrl)
-    resp=s.get(autoSuggestUrl,proxies=proxies)
+    resp=s.get(autoSuggestUrl)
     sleep(random.uniform(0.9,5.1))
     html=resp.text.replace('&quot','\'').replace("\\","")
     groups=re.findall(listPattern,html)
@@ -149,7 +149,7 @@ def startSearch(s):
 
 def main():
     s=requests.session()
-    s.get(base_url,proxies=proxies)
+    s.get(base_url)
     sleep(random.uniform(0.9,5.1))
     startSearch(s)
 

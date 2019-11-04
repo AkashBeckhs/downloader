@@ -3,15 +3,17 @@ import re
 import lxml.html as lh
 import json
 import random
+import argparse
 import db_helper as db
 from time import sleep
 from html import unescape
 
 #cities=[ 'Mexico City','Ecatepec','Guadalajara','Juárez','Tijuana','León','Nezahualcóyotl','Monterrey','Zapopan','Naucalpan','Chihuahua','Mérida','Guadalupe','San Luis ','Tlalnepantla','Aguascalientes','Mexicali','Hermosillo','Saltillo]','Acapulco','Morelia','Culiacán','Querétaro','Torreón','Tlaquepaque','Cancún','Chimalhuacan','Reynosa','Tuxtla','Cuautitlán','San Nicolás de los Garza','Ciudad','Toluca','Durango','Veracruz','Matamoros','Ciudad','Xalapa','Tonalá','Mazatlán','Nuevo Laredo','Irapuato','Villahermosa','Cuernavaca','Xico','Celaya','Tampico','Tepic','General Escobedo]','Ixtapaluca','Coacalco','Ciudad Victoria','Ciudad Obregón','PachucaHidalgo','Ensenada','Ciudad Santa Catarina','Oaxaca','Villa ','Gómez Palacio','UruapanMichoacán','Tehuacán','Coatzacoalcos','Los Reyes la Paz','Los Mochis','Soledad de Graciano','Campeche','Monclova','Buenavista','Ciudad Madero','Tapachula','NogalesSonora','La Paz','Puerto Vallarta','Poza Rica','ChicoloapanMéxico','Chilpancingo','MetepecMéxico','Ojo de AguaMéxico','Ciudad del Carmen','San Pablo de las Salinas','Jiutepec','Cuautla','Chalco','Salamanca','San Cristóbal de las Casas','Piedras NegrasCoahuila','San Luis Río Colorado','Chetumal','CórdobaVeracruz','Boca del Río','Zamora de Hidalgo','Acuña','Colima','Zacatecas','San Pedro Garza García','San Juan del Río','Naucalpan','OrizabaVeracruz','Ciudad Valles','Fresnillo','Manzanillo','IgualaGuerrero','MinatitlánVeracruz','DeliciasChihuahua','NavojoaSonora','GuaymasSonora','Hidalgo del Parral','Playa del Carmen']
-cities=['Texas']
-toFind="car+window+tinting"
-tableName='texas'
-listPattern='las\\";:\\[(.*)\\]'
+tableName=''
+search_text=''
+search_city=''
+postal_code=''
+listPattern='([a-zA-z ,]*)'
 
 headers={'authority':'www.yelp.com',
 'method':'GET',
@@ -23,6 +25,8 @@ headers={'authority':'www.yelp.com',
 'content-type':'application/json',
 'referer':'www.yellowpages.com',}
 
+
+cities_set=set()
 
 proxies= { "http"  : "http://10.135.0.26:8080/ ", 
            "https" : "http://10.135.0.26:8080/ " 
@@ -74,6 +78,7 @@ def removeExtraText(text):
 
 def scrapePage(s,url):
     print(url)
+    global tableName
     resp=s.get(url,proxies=proxies)
     sleep(random.uniform(0.9,5.1))
     tree=lh.fromstring(resp.text)
@@ -105,35 +110,39 @@ def startExtraction(s,url):
     while(len(nextBtn)>0):
         href=nextBtn[0].attrib['href']
         nextPageUrl=base_url+href
-        resp=s.get(nextPageUrl)
+        resp=s.get(nextPageUrl,proxies=proxies)
         sleep(random.uniform(0.9,5.1))
         tree=lh.fromstring(resp.text)
         tList=tree.xpath(xpathDict['data_div'])
         for t in tList:
-            print(t.get('href'))
             aTags.append(t)
         nextBtn=tree.xpath(xpathDict['next_button'])
-    print("List Created")
     for a in aTags:
         pageUrl=base_url+a.get('href') 
         scrapePage(s,pageUrl)  
-
+        
+def formatUrl(url):
+    return url.replace(' ','+').replace(',','%2C')
 
 
 def startSearch(s):
     city='texas'
     sleep(random.uniform(0.9,5.1))
-    autoSuggestUrl=base_url+"/autosuggest/location.html?location=texas"
+    autoSuggestUrl=base_url+"/autosuggest/location.html?location=%s" %(search_city)
+    print('Auto suggest url ',autoSuggestUrl)
     resp=s.get(autoSuggestUrl,proxies=proxies)
-    html=resp.text.replace('&quot','$').replace("\\","")
-    print(html)
+    sleep(random.uniform(0.9,5.1))
+    html=resp.text.replace('&quot','\'').replace("\\","")
     groups=re.findall(listPattern,html)
-    print(len(groups))
-
-
-
-    #url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(toFind,city)
-    #startExtraction(s,url)
+    for i in range(0,len(groups)):
+        cities_set.add(groups[i])
+    filtered_cities=[x.strip() for x in cities_set if postal_code in x]
+    print(filtered_cities)
+    for city in filtered_cities:
+        url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(formatUrl(search_text),formatUrl(city))
+        print(url)
+        startExtraction(s,url)
+        
 
         
         
@@ -145,4 +154,26 @@ def main():
     startSearch(s)
 
 if __name__=='__main__':
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--table')
+    parser.add_argument('--search')
+    parser.add_argument('--city')
+    parser.add_argument('--pc')
+    args=parser.parse_args()
+    if args.table:
+        tableName=args.table
+    else:
+        raise Exception("Enter table")
+    if args.search:
+        search_text=args.search
+    else:
+        raise Exception("Enter Search")
+    if args.city:
+        search_city=args.city
+    else:
+        raise Exception("Enter city")
+    if args.pc:
+        postal_code=args.pc
+    else:
+        raise Exception("Enter postal code")
     main()

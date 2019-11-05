@@ -4,6 +4,7 @@ import lxml.html as lh
 import json
 import random
 import argparse
+import cities as ct
 import db_helper as db
 from time import sleep
 from html import unescape
@@ -126,22 +127,22 @@ def formatUrl(url):
 
 
 def startSearch(s):
-    city='texas'
-    sleep(random.uniform(0.9,5.1))
-    autoSuggestUrl=base_url+"/autosuggest/location.html?location=%s" %(search_city)
-    print('Auto suggest url ',autoSuggestUrl)
-    resp=s.get(autoSuggestUrl)
-    sleep(random.uniform(0.9,5.1))
-    html=resp.text.replace('&quot','\'').replace("\\","")
-    groups=re.findall(listPattern,html)
-    for i in range(0,len(groups)):
-        cities_set.add(groups[i])
-    filtered_cities=[x.strip() for x in cities_set if postal_code in x]
-    print(filtered_cities)
-    for city in filtered_cities:
-        url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(formatUrl(search_text),formatUrl(city))
-        print(url)
-        startExtraction(s,url)
+    cities = ct.cityDict[search_city]
+    for city in cities:
+        sleep(random.uniform(0.9,5.1))
+        autoSuggestUrl=base_url+"/autosuggest/location.html?location=%s" %(city)
+        print('Auto suggest url ',autoSuggestUrl)
+        resp=s.get(autoSuggestUrl)
+        sleep(random.uniform(0.9,5.1))
+        html=resp.text.replace('&quot','\'').replace("\\","")
+        groups=re.findall(listPattern,html)
+        for i in range(0,len(groups)):
+            cities_set.add(groups[i])
+        filtered_cities=[x.strip() for x in cities_set if postal_code in x]
+        print(filtered_cities)
+        for city in filtered_cities:
+            url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(formatUrl(search_text),formatUrl(city))
+            startExtraction(s,url)
         
 
         

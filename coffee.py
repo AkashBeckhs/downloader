@@ -9,7 +9,7 @@ import re
 import cities as cit
 import keywords as keys
 
-
+search_city=''
 country=''
 tableName=''
 ct=''
@@ -206,9 +206,7 @@ def main():
     driver = initializeChrome()
     global country
     try:
-        countrList=cit.toDoList
-        for cntr in countrList:
-            country=cntr
+            country=search_city
             print(country)
             for key in searches:
                 print(key)
@@ -237,11 +235,16 @@ def main():
 if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--table')
+    parser.add_argument('--city')
     args=parser.parse_args()
     if args.table:
         tableName=args.table
     else:
         raise Exception("Enter table")
+    if args.table:
+        search_city=args.city
+    else:
+        raise Exception("Enter City")
     main()
    
     

@@ -8,4 +8,4 @@ cityDict['california']=['Adelanto','Agoura Hills','Alameda','Albany','Alhambra',
 
 
 
-toDoList=['texas']
+toDoList=['california']

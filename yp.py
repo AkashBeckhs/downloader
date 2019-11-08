@@ -78,7 +78,6 @@ def removeExtraText(text):
 
 
 def scrapePage(s,url):
-    print(url)
     global tableName
     resp=s.get(url)
     sleep(random.uniform(0.9,5.1))

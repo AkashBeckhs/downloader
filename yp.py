@@ -141,6 +141,7 @@ def startSearch(s):
         print(filtered_cities)
         for city in filtered_cities:
             url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(formatUrl(search_text),formatUrl(city))
+            print(url)
             startExtraction(s,url)
         
 

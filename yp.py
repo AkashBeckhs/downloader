@@ -26,6 +26,7 @@ headers={'authority':'www.yelp.com',
 'content-type':'application/json',
 'referer':'www.yellowpages.com',}
 
+aList= list()
 
 cities_set=set()
 
@@ -78,20 +79,22 @@ def removeExtraText(text):
 
 
 def scrapePage(s,url):
-    global tableName
-    resp=s.get(url)
-    sleep(random.uniform(0.9,5.1))
-    tree=lh.fromstring(resp.text)
-    dataDict=dict()
-    name=removeExtraText(getTextFromElement(tree.xpath(xpathDict['shop_name'])))
-    dataDict['Name']=name
-    dataDict['Website']=getAttrFromElement(tree.xpath(xpathDict['shop_website']),'href')
-    dataDict['Email']=getAttrFromElement(tree.xpath(xpathDict['shop_email']),'href').replace("mailto:",'')
-    dataDict['Phone']=getTextFromElement(tree.xpath(xpathDict['shop_number']))
-    dataDict['Full_Address']=getTextFromElement(tree.xpath(xpathDict['shop_address']))
-    #dataDict['Reviews']=getTextFromElement(tree.xpath(xpathDict['shop_review']))
-    #dataDict['Rating']=getTextFromElement(tree.xpath(xpathDict['shop_rating']))
-    db.writeToDB(dataDict,tableName)
+    if url not in aList:
+        global tableName
+        resp=s.get(url)
+        sleep(random.uniform(0.9,5.1))
+        tree=lh.fromstring(resp.text)
+        dataDict=dict()
+        name=removeExtraText(getTextFromElement(tree.xpath(xpathDict['shop_name'])))
+        dataDict['Name']=name
+        dataDict['Website']=getAttrFromElement(tree.xpath(xpathDict['shop_website']),'href')
+        dataDict['Email']=getAttrFromElement(tree.xpath(xpathDict['shop_email']),'href').replace("mailto:",'')
+        dataDict['Phone']=getTextFromElement(tree.xpath(xpathDict['shop_number']))
+        dataDict['Full_Address']=getTextFromElement(tree.xpath(xpathDict['shop_address']))
+        #dataDict['Reviews']=getTextFromElement(tree.xpath(xpathDict['shop_review']))
+        #dataDict['Rating']=getTextFromElement(tree.xpath(xpathDict['shop_rating']))
+        db.writeToDB(dataDict,tableName)
+        aList.append(url)
 
 
 def extractAutoSuggetions(s,url):

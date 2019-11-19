@@ -95,6 +95,8 @@ def scrapePage(s,url):
         #dataDict['Rating']=getTextFromElement(tree.xpath(xpathDict['shop_rating']))
         db.writeToDB(dataDict,tableName)
         aList.append(url)
+    else:
+        print("skipping :-  %s" %url)
 
 
 def extractAutoSuggetions(s,url):

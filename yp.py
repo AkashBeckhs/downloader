@@ -140,9 +140,10 @@ def startSearch(s):
         filtered_cities=[x.strip() for x in cities_set if postal_code in x]
         print(filtered_cities)
         for city in filtered_cities:
-            url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(formatUrl(search_text),formatUrl(city))
-            print(url)
-            startExtraction(s,url)
+            if city.split(',')[0] is not '':
+                url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(formatUrl(search_text),formatUrl(city))
+                print(url)
+                startExtraction(s,url)
         
 
         

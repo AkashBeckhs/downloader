@@ -28,7 +28,7 @@ headers={'authority':'www.yelp.com',
 
 aList= list()
 
-cities_set=set()
+
 
 proxies= { "http"  : "http://10.135.0.26:8080/ ", 
            "https" : "http://10.135.0.26:8080/ " 
@@ -133,6 +133,7 @@ def formatUrl(url):
 def startSearch(s):
     cities = ct.cityDict[search_city]
     for city in cities:
+        cities_set=set()
         sleep(random.uniform(0.9,5.1))
         autoSuggestUrl=base_url+"/autosuggest/location.html?location=%s" %(city)
         print('Auto suggest url ',autoSuggestUrl)

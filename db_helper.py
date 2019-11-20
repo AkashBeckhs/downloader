@@ -29,3 +29,4 @@ def writeToDB(dataList,tableName):
             db.commit()
         except Exception as e:
             print(e)
+

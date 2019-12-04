@@ -1,35 +1,10 @@
+import requests
+cert_file_path = "C:\\Users\\aakash\\Documents\\Project Documents\\FacialRecongnition\\AWS\\POC\\client_certificate_api_gateway\\ca.pem"
+key_file_path = "C:\\Users\\aakash\\Documents\\Project Documents\\FacialRecongnition\\AWS\\POC\\client_certificate_api_gateway\\pubkey.pem"
 
-def checkPerfectRootIfExists(num):
-    x=int(num/2)
-    for i in range(2,x+1):
-        root=num**(1/i)
-        if root**root==num:
-            return "Yes"
-    return "No"
-
-def checkPandatic(num):
-    if num=='Yes':
-       return "Yes"
-    if num==1:
-        return "Yes"
-
-    if checkPerfectRootIfExists(num) == "Yes":
-        return "Yes"
-    possibleValues=list()
-    temp=str(num)
-    for i in range(len(temp)):
-        t=num-int(temp[i])**2
-        x=checkPerfectRootIfExists(t)
-        if x!='Yes':
-            checkPandatic(t)
-        else:
-            return 'No'
-   
-
-    
-
-x=checkPandatic(13)
-print(x)
-
-    
-
+proxies= { "http"  : "http://10.135.0.26:8080/ ", 
+           "https" : "http://10.135.0.26:8080/ " 
+        }
+url = "https://soprasteriamobility.com/fetch/587422"
+cert = (cert_file_path)
+r = requests.get(url, cert=cert, verify=False,proxies=proxies)

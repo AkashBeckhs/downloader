@@ -27,7 +27,7 @@ headers={'authority':'www.yelp.com',
 'referer':'www.yellowpages.com',}
 
 aList= list()
-
+search_text_array=['auto window tint','car window tinting','car glass tint','auto glass company']
 
 
 proxies= { "http"  : "http://10.135.0.26:8080/ ", 
@@ -95,14 +95,13 @@ def scrapePage(s,url):
         #dataDict['Rating']=getTextFromElement(tree.xpath(xpathDict['shop_rating']))
         db.writeToDB(dataDict,tableName)
         aList.append(url)
-    else:
-        print("skipping :-  %s" %url)
+    
 
 
 def extractAutoSuggetions(s,url):
     resp=s.get(url)
     sleep(random.uniform(0.9,5.1))
-    print(resp.text)
+    
 
 
 
@@ -136,7 +135,6 @@ def startSearch(s):
         cities_set=set()
         sleep(random.uniform(0.9,5.1))
         autoSuggestUrl=base_url+"/autosuggest/location.html?location=%s" %(city)
-        print('Auto suggest url ',autoSuggestUrl)
         resp=s.get(autoSuggestUrl)
         sleep(random.uniform(0.9,5.1))
         html=resp.text.replace('&quot','\'').replace("\\","")
@@ -147,9 +145,10 @@ def startSearch(s):
         print(filtered_cities)
         for city in filtered_cities:
             if city.split(',')[0] is not '':
-                url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(formatUrl(search_text),formatUrl(city))
-                print(url)
-                startExtraction(s,url)
+                for srch in search_text_array: 
+                    url=base_url+"/search?search_terms=%s&geo_location_terms=%s" %(formatUrl(srch),formatUrl(city))
+                    print(url)
+                    startExtraction(s,url)
         
 
         
